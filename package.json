@@ -1,0 +1,25 @@
+{
+  "name": "gulp-project",
+  "version": "0.1.0",
+  "devDependencies": {
+    "browser-sync": "^2.12.5",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-concat": "latest",
+    "gulp-css-purge": "^3.0.9",
+    "gulp-notify": "latest",
+    "gulp-rename": "latest",
+    "gulp-sass": "^3.0.0",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-uglify": "^2.0.0",
+    "sass-em": "^1.0.3",
+    "sass-rem": "^2.0.1",
+    "sass-units-translate": "latest",
+    "sassdash": "^0.9.0"
+  },
+  "dependencies": {
+    "del": "^2.2.2",
+    "jquery.mb.ytplayer": "^3.2.9"
+  }
+}

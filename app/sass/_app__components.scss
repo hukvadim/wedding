@@ -1,0 +1,414 @@
+/**
+ * jQuery plugin slidescroll
+ */
+.slidescroll-enabled {
+
+	&,
+	& body {
+		height: 100%;
+	}
+
+	& .slidescroll-wrap {
+		position: relative;
+		height: 100%;
+		overflow: hidden;
+	}
+	& .main,
+	& .page {
+		position: relative;
+		height: 100%;
+	}
+	& .main {
+		transform: translate3d(0, 0, 0);
+		transition: transform 1s ease;
+		top: 0;
+	}
+	& .page {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+}
+
+
+.slidescroll-nav {
+	position: absolute;
+	left: rem(125px);
+	top: 55%;
+	transform: translateY(-50%);
+	z-index: 99;
+
+	.slidescroll-nav-pin {
+		text-decoration: none;
+		cursor: pointer;
+		padding: rem(12px 0);
+		// position: initial;
+		position: relative;
+		transition: all 0.5s ease-in-out;
+		z-index: 3;
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: rem(5px);
+			top: 0;
+			height: 0;
+			width: 0;
+			border-left: rem(2px) solid #fff;
+			border-left-width: rem(2px);
+			transition: all 0.5s ease-in-out;
+		}
+
+		&:hover {
+
+			.slidescroll-pin-title,
+			.slidescroll-pin-title-text {
+				opacity: 1 !important;
+			}
+
+			& ~ .slidescroll-nav-pin .slidescroll-pin-index {
+				opacity: 0;
+			}
+		}
+
+		// &:first-child .slidescroll-pin-index {
+		// 	top: rem(-69px);
+		// 	left: rem(-20px);
+		// }
+	}
+
+	.slidescroll-nav-pin,
+	.slidescroll-nav-pin > span {
+		display: block;
+	}
+
+	.slidescroll-pin-index {
+		position: absolute;
+		opacity: 0;
+		height: 0;
+		overflow: hidden;
+		top: rem(-59px);
+		left: rem(24px);
+		font-size: rem(50px);
+		font-weight: 800;
+		color: #fff;
+		transition: all 0.5s ease-in-out;
+	}
+	
+	.slidescroll-pin-title {
+		transition: opacity 0.2s;
+		position: relative;
+
+		&-text {
+			transition: opacity 0.2s;
+			opacity: 0;
+		}
+	
+		&-abs {
+			display: none !important;
+			opacity: 0;
+			position: absolute;
+			top: rem(-38px);
+			left: 0;
+		}
+
+		&,
+		&-abs {
+			color: #fff;
+			font-size: rem(12px);
+			text-transform: uppercase;
+			line-height: 1;
+			padding: rem(1px 0 0);
+			padding-left: rem(25px);
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: rem(1px);
+				left: rem(1px);
+				display: block;
+				width: rem(10px);
+				height: rem(10px);
+				border-radius: 50%;
+				background-color: #fff;
+				text-indent: 100%;
+				white-space: nowrap;
+			}
+		}
+	}
+
+	.slidescroll-nav-pin.active {
+		padding-bottom: rem(130px);
+		z-index: 1;
+
+		&::before {
+			top: rem(54px);
+			height: rem(88px);
+		}
+
+		.slidescroll-pin-index {
+			opacity: 1;
+			height: auto;
+			overflow: visible;
+		}
+
+		.slidescroll-pin-title {
+			opacity: 1;
+
+			&-text {
+				opacity: 1;
+			}
+
+			&-abs {
+				display: none;
+
+				// &::before {
+				// 	left: 0;
+				// 	border: rem(1px) solid $button-color;
+				// 	border: rem(1px) solid rgba(249, 249, 249, 0.5);
+				// 	box-shadow: rem(0 0 0 2px) $button-color;
+				// }
+			}
+		}
+	}
+}
+
+
+
+.else-styles {
+
+	.slidescroll-pin-title {
+		color: #fff;
+	}
+}
+
+
+
+button.hamburger {
+	border: none;
+	background: none;
+	background-color: $color-primary;
+	outline: none;
+	cursor: pointer;
+	width: rem(30px);
+	transition: all .6s ease-in-out;
+	box-sizing: content-box;
+	
+	& > span {
+		width: 100%;
+		height: rem(2px);
+		display: block;
+		margin: rem(6px 0);
+		background-color: #fff;
+		transition: all .35s ease-in-out;
+		margin-right: 0;
+		margin-left: auto;
+		border-radius: rem(10px);
+		
+		&:nth-child(3) {
+			max-width: rem(20px);
+		}
+	}
+
+	&:hover > span:nth-child(1) {
+		transform: translateY(17px);
+	}
+	&:hover > span:nth-child(2) {
+		transform: translateY(-7px);
+	}
+	&:hover > span:nth-child(3) {
+		transform: translateY(-7px);
+	}
+	&.hamburger-active > span:nth-child(3) {
+		transform: translateY(-7px) rotateZ(45deg);
+		max-width: 100%;
+	}
+	&.hamburger-active > span:nth-child(1) {
+		transform: translateY(9px) rotateZ(-45deg);
+	}
+	&.hamburger-active > span:nth-child(2) {
+		transform: translateY(0);
+		opacity: 0;
+	}
+}
+
+
+
+
+
+
+
+
+/**
+ * Поля форми label стає маленьким при вводі
+ */
+.form-label-group {
+	position:relative;
+	margin-bottom: rem(20px);
+	
+	.form-control,
+	label {
+		font-size: rem(18px);
+	}
+
+	.form-control {
+		padding: rem(14px 0 0) !important;
+	    box-sizing: content-box;
+		color: #2a323f;
+		border: transparent;
+		border-bottom: rem(1px) solid rgba(42, 50, 63, .5);
+		border-bottom-width: rem(1px);
+		background-color: transparent;
+		border-radius: 0;
+		margin-bottom: rem(35px);
+		transition: all 0.2s ease-in-out;
+		line-height: 1.4;
+
+		&:focus {
+			box-shadow: none;
+			border-bottom-color: $color-2;
+		}
+	}
+
+	& > label {
+		color: $default-placeholder-color;
+		font-weight: 400;
+		position: absolute;
+		pointer-events: none;
+		left: 0;
+		top: 0;
+		transition:0.2s ease all;
+		padding: 0;
+		margin: rem(16px 0 0);
+	}
+
+	// .form-control:not(:placeholder-shown) ~ label {
+ //    	top: 0;
+	// 	font-size: rem(14px);
+	// 	color: #56575c;
+	// 	margin: 0;
+	// 	height: auto;
+
+	// 	&.required-label::before {
+	// 		display: none;
+	// 	}
+	// }
+
+	// .form-control:not(:placeholder-shown) {
+	// 	padding-top: rem(5px);
+	// }
+	// textarea.form-control:not(:placeholder-shown) {
+	// 	padding-top: rem(19px) !important;
+	// }
+
+	.form-control ~ label {
+    	top: 0;
+		font-size: rem(14px);
+		color: #56575c;
+		margin: 0;
+		height: auto;
+
+		&.required-label::before {
+			display: none;
+		}
+	}
+
+	.form-control {
+		padding-top: rem(12px);
+	}
+	textarea.form-control {
+		margin-top: rem(53px) !important;
+		padding-top: 0 !important;
+		padding-bottom: rem(8px) !important;
+		max-height: rem(80px);
+		height: rem(25px);
+
+		& ~ label {
+			top: rem(-20px)
+		}
+	}
+
+}
+
+
+
+
+
+
+
+/**
+ * Стилі для відео на задньому фоні
+ */
+.img-full-bg,
+.video-background {
+	position: absolute;
+	z-index: 1;
+	background-position-x: center;
+    background-position-y: center;
+    background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+}
+.img-full-bg,
+.video-background {
+    background-size: contain;
+
+	iframe {
+		z-index: 1;
+	}
+
+	&::before {
+        background-color: inherit;
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+}
+.img-full-bg {
+    background-size: cover;
+    background-color: rgba(42, 50, 63, .7);
+
+	&::before {
+        background-color: inherit;
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+}
+
+
+
+
+
+
+
+/**
+ * Галерея у вигляді GRID
+ */
+.grid-gallery-style,
+.grid-gallery {
+	padding: rem(30px);
+	box-sizing: border-box;
+}
+
+
+
+
+/* Image with 'data' attribute is hidden */
+img[data-src] {
+   opacity: 0;
+}
+img.lazyload[src] {
+	transition: opacity .3s linear 0.1s;
+	opacity: 1;
+}

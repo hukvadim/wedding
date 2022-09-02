@@ -1,0 +1,133 @@
+/**
+ * На стартовій сторінці показуємо елементи меню
+ * Далі їх приховуємо їх в "burger"
+ */
+.slidescroll-start1 {
+	
+	.header-logo {
+		top: rem(20px);
+	}
+	
+	.navbar-base {
+		opacity: 1;
+		top: 0;
+	}
+
+	#hamburger-toggle {
+		opacity: 0;
+		right: rem(-80px);
+	}
+}
+
+
+
+
+/**
+ * Блоки яким треба показувати білий логотип
+ */
+.slidescroll-start1 {
+
+	.header-logo .logo-primary { opacity: 0; }
+	.header-logo .logo-white { opacity: 1; }
+}
+
+
+
+
+/**
+ * Блоки з чорним меню
+ */
+
+.slidescroll-start7,
+.slidescroll-start5,
+.slidescroll-start2 {
+
+	.slidescroll-nav .slidescroll-nav-pin::before { border-left-color: #2a323f !important; }
+	
+	.slidescroll-nav .slidescroll-pin-title,
+	.slidescroll-nav .slidescroll-pin-title-abs { color: #2a323f; }
+
+	.slidescroll-nav .slidescroll-pin-index { color: $button-color; }
+	
+	// .slidescroll-nav .slidescroll-pin-title-abs::before,
+	.slidescroll-nav .slidescroll-pin-title::before { background-color: #111b20; }
+
+}
+
+
+
+
+
+/**
+ * Додаткові стилі при відкритому меню через plugin slidereveal.js
+ */
+#trigger-nav--toggle-overlay {
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: fixed;
+	z-index: 102;
+	background-color: rgba(0, 0, 0, 0);
+	transition: all 0.2s ease-in-out;
+}
+body.trigger-navbar--open,
+body.body-navbar--open {
+	overflow: hidden !important;
+}
+.trigger-navbar--open {
+
+	#trigger-nav--toggle-overlay {
+		cursor: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ3Ljk3MSA0Ny45NzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ3Ljk3MSA0Ny45NzE7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KPGc+Cgk8cGF0aCBkPSJNMjguMjI4LDIzLjk4Nkw0Ny4wOTIsNS4xMjJjMS4xNzItMS4xNzEsMS4xNzItMy4wNzEsMC00LjI0MmMtMS4xNzItMS4xNzItMy4wNy0xLjE3Mi00LjI0MiwwTDIzLjk4NiwxOS43NDRMNS4xMjEsMC44OCAgIGMtMS4xNzItMS4xNzItMy4wNy0xLjE3Mi00LjI0MiwwYy0xLjE3MiwxLjE3MS0xLjE3MiwzLjA3MSwwLDQuMjQybDE4Ljg2NSwxOC44NjRMMC44NzksNDIuODVjLTEuMTcyLDEuMTcxLTEuMTcyLDMuMDcxLDAsNC4yNDIgICBDMS40NjUsNDcuNjc3LDIuMjMzLDQ3Ljk3LDMsNDcuOTdzMS41MzUtMC4yOTMsMi4xMjEtMC44NzlsMTguODY1LTE4Ljg2NEw0Mi44NSw0Ny4wOTFjMC41ODYsMC41ODYsMS4zNTQsMC44NzksMi4xMjEsMC44NzkgICBzMS41MzUtMC4yOTMsMi4xMjEtMC44NzljMS4xNzItMS4xNzEsMS4xNzItMy4wNzEsMC00LjI0MkwyOC4yMjgsMjMuOTg2eiIgZmlsbD0iIzExMTExMSIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=), auto;
+		background-color: rgba(42, 50, 63, 0.5);
+		// background-color: rgba(0, 0, 0, 0.4);
+		// background-color: rgba(75, 75, 93, 0.6)
+	}
+}
+
+#side-navbar {
+	background-color: $color-primary;
+	z-index: 49;
+}
+
+
+
+
+.hamburger {
+	position: fixed;
+	top: 0;
+	right: 0;
+	padding: rem(35px);
+	z-index: 99;
+	overflow: hidden;
+}
+
+
+
+/**
+ * Галерея lightGallery
+ */
+.lg-backdrop {
+    background-color: rgba(0, 0, 0, .8) !important;
+}
+.lg .lg-img-wrap {
+    padding: rem(50px 0);
+}
+
+
+
+
+
+/**
+ * jQuery plugin scroll
+ */
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	background-color: $color-2; background-color: rgba(216, 201, 183, .75);
+}
+
+.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
+	background-color: $color-2; background-color: rgba(216, 201, 183, 0.85);
+}
+.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{
+	background-color: $color-2; background-color: rgba(216, 201, 183, 0.9);
+}

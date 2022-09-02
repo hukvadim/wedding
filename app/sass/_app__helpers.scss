@@ -1,0 +1,83 @@
+.animate {
+    transition: all 0.2s ease-in-out;
+}
+
+.ff-2 {
+	font-family: 'AlethiaNext-Light';
+
+	&--save {
+		font-family: 'Montserrat-Light' !important;
+	}
+}
+
+.page-detail {
+	position: absolute;
+}
+
+
+.bd-line {
+	
+
+	&-i {
+		position: relative;
+		display: inline-block;
+		height: rem(20px);
+		vertical-align: bottom;
+		min-width: rem(50px);
+		transition: all 0.4s ease-in-out;
+	}
+
+	&::before,
+	&-2::after {
+		content: '';
+		position: absolute;
+		display: block;
+		width: 100%;
+		border: rem(1px) solid $color-2;
+		border-top: none;
+	}
+
+	&.bd-line-va-m--v::before,
+	&-2.bd-line-va-m--v::after {
+		transform: translateX(-50%);
+		left: 50%;
+	}
+
+	&.bd-line-va-m--h::before,
+	&-2.bd-line-va-m--h::after {
+		transform: translateY(-50%);
+		bottom: 50%;
+	}
+}
+
+
+
+.page-p-right {
+	padding-right: rem(100px);
+	box-sizing: border-box;
+}
+.page-h-w-100 {
+	height: 100%;
+	width: 100%;
+}
+
+
+
+.img-cover {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    
+	img {
+	    object-fit: cover;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    -webkit-user-select: none;
+	    -moz-user-select: none;
+	    -ms-user-select: none;
+	    user-select: none;
+	    width: 100%;
+	    height: 100%;
+	}
+}

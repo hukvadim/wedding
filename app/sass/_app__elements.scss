@@ -1,0 +1,150 @@
+.button {
+	color: #fff;
+	text-transform: uppercase;
+	font-size: rem(14px);
+	padding: rem(20px 20px);
+	position: relative;
+	transition: all 0.2s ease-in-out;
+	display: inline-block;
+	background-color: transparent;
+	letter-spacing: rem(1.5px);
+	text-align: center;
+
+	.icon-right,
+	.icon {
+		margin-left: rem(17px);
+		margin-bottom: rem(1px);
+		position: relative;
+	}
+
+	.icon-left {
+		margin-left: 0;
+		margin-right: rem(17px);
+		margin-bottom: rem(1px);
+	}
+
+
+	.button-text,
+	span {
+		position: relative;
+		transition: all 0.2s ease-in-out;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: $button-color;
+		border-radius: rem(4px 0 0 4px);
+		width: 50%;
+		height: 100%;
+		transition: all 0.4s ease-in-out;
+	}
+
+
+	&.second-color {
+
+		&::before {
+			background-color: $button-color;
+		}
+
+		.button-text,
+		span {
+			color: #2a323f;
+		}
+	}
+
+	
+	&--i-right {
+
+
+		.icon {
+			margin-left: 0;
+			margin-right: rem(17px);
+		}
+		&::before {
+			left: initial;
+			right: 0;
+			border-radius: rem(0 4px 4px 0);
+		}
+	}
+
+	&:hover {
+		text-decoration: none;
+
+		&::before {
+			width: 100%;
+			border-radius: rem(4px);
+		}
+
+		.icon.icon-right {
+			background-position: -5px -14px;	
+		}
+		.icon.icon-left {
+			background-position: -5px -0px;
+		}
+	}
+
+
+
+	&.button--transparent {
+
+		&::before {
+			background-color: $button-color;
+			width: 0;
+		}
+
+		.button-text,
+		span {
+			color: #2a323f;
+		}
+
+		.icon-right {
+			background-position: -71px -14px;
+		}
+
+		.icon-left {
+			background-position: -71px -0px;
+		}
+
+		&:hover {
+
+			span {
+				color: #ffffff;
+			}
+
+			&::before {
+				width: 100%;
+				border-radius: rem(4px);
+				background-color: #e4d9cb;
+				width: 100%;
+			}
+		}
+	}
+
+	
+}
+
+
+
+
+.page-content {
+	position: relative;
+}
+.sub-title {
+	font-size: rem(16px);
+	color: $color-2;
+	margin-bottom: 0;
+}
+.title {
+	font-size: rem(48px);
+	color: #2a323f;
+	padding-bottom: rem(20px);
+	margin-bottom: 0;
+}
+.text {
+	font-size: rem(16px);
+	color: #2a323f;
+	font-weight: 300;
+}
